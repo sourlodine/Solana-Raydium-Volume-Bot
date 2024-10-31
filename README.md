@@ -46,8 +46,6 @@ npm run start
 
 ## Contact me if you have question
 
-Discord: [evilgon](https://discordapp.com/users/1026521907182444574) in discord
-
-Telegram: [@evilgon_dev](https://t.me/evilgon_dev)
+[Telegram](https://t.me/TarpanTg)
 
 ## You can always feel free to find me here for my help on other bots like Raydium sniping bot, Shit-token Launcher, Token-freezer, Pumpfun sniper, Market making bot.
