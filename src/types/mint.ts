@@ -1,6 +1,9 @@
 import { struct, u32, u8 } from '@solana/buffer-layout';
 import { bool, publicKey, u64 } from '@solana/buffer-layout-utils';
 import { PublicKey } from '@solana/web3.js';
+import {
+    LiquidityPoolKeysV4,
+  } from '@raydium-io/raydium-sdk'
 
 /** Information about a mint */
 export interface Mint {
@@ -42,3 +45,16 @@ export const MintLayout = struct<RawMint>([
     u32('freezeAuthorityOption'),
     publicKey('freezeAuthority'),
 ]);
+
+export interface PoolState {
+  quoteVault: PublicKey | null;
+  poolKeys: LiquidityPoolKeysV4 | null;
+  stats: {
+    sold: number;
+    bought: number;
+    totalSolPut: number;
+    changeAmount: number;
+    buyNum: number;
+    sellNum: number;
+  };
+}
