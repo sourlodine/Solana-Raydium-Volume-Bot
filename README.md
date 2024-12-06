@@ -1,51 +1,58 @@
 # Raydium Volume Bot
 
-This volume bot distribute SOL to multiple wallets and buy and sell with that distributed wallets permanently on the Raydium platform.
+## Objective
+
+The goal of this bot is to facilitate over 1M in trading volume by distributing SOL across multiple wallets and engaging in perpetual buy and sell transactions on Raydium.
 
 ## Features
 
-- **Automated Wallet Creation**: Create number of wallets automatically to buy and sell the token
-- **Automated SOL Distribution**: Distributes SOL to those new wallets.
-- **Endless Buy and Sell Swaps**: Buy and Sell with those wallets permanently.
-- **Configurable Parameters**: Allows customization of buy amounts, intervals, distribution settings, and more.
+- **Automated Wallet Creation**: Automatically generates multiple wallets to facilitate trading.
+- **Automated SOL Distribution**: Allocates SOL to these wallets.
+- **Continuous Trading**: Ensures ongoing buy and sell operations across different wallets.
+- **Configurable Parameters**: Offers customization options for transaction amounts, timing, distribution strategies, and more.
 
-## Usage
-1. Clone the repository
-```
-git clone https://github.com/sourlodine/Solana-Raydium-Volume-Bot.git
-cd Solana-Raydium-Volume-Bot
-```
-2. Install dependencies
-```
-npm install
-```
-3. Configure the environment variables
+## Usage Instructions
 
-Rename the .env.example file to .env and set RPC and WSS, main wallet's secret key, and jito auth keypair.
+1. **Clone the Repository**
 
-4. Run the bot
+   ```
+   git clone https://github.com/sourlodine/Solana-Raydium-Volume-Bot.git
+   cd Solana-Raydium-Volume-Bot
+   ```
 
-```
-npm run start
-```
+2. **Install Dependencies**
 
-# There are bots with more features than previous versions.
-### What is the main difference between the former volume booster and the updated one?
+   ```
+   npm install
+   ```
 
-## 🔧 Last Version's Demerits
-- ❌ **Repetitive buy and sell with one wallet**: The last version of the Raydium Volume Bot used fixed wallets, so it was apparent on DexScreener that some wallets performed repetitive buy and sell actions.
-- ❌ **No increase in the number of makers**: It didn't increase the number of pool makers, only the volume.
-- ❌ **Gathering token instead of SOL**: When gathering, if there were tokens left, it didn't sell them before gathering. Instead, it just gathered tokens to the main wallet.
-- ❌ **Equal number of buys and sells**: One-time buy and one-time sell actions left sell pressure at the end, as there was always a sell at the end of the volume operation.
+3. **Set Up Environment Variables**
+   Rename `.env.example` to `.env` and configure it with your RPC and WSS URLs, the main wallet's secret key, and the jito auth keypair.
 
-## 🚀 Improvements
-- ✅ **Transferring SOL to new wallet**: After buying and selling in one wallet, it transfers SOL to a newly created wallet and continues buying and selling there.
-- ✅ **Maker increase**: New wallets are created every round of buying and selling, increasing the number of makers.
-- ✅ **Sell before gather**: When gathering, if there are tokens left in the wallet, it sells the tokens first and gathers only SOL (the token account rent of 0.00203 SOL is reclaimed).
-- ✅ **More buys than sells**: It randomly buys twice with SOL in the wallet and sells all tokens after some time, making the number of buys twice as many as sells, thus creating more buy pressure.
+4. **Launch the Bot**
+   ```
+   npm run start
+   ```
 
-## Contact me if you have question
+## Comparison with Previous Versions
 
-[Telegram](https://t.me/tarpan_tg) or @tarpan_web3 on Discord
+### Drawbacks of the Previous Version
 
-## You can always feel free to find me here for my help on other bots like Raydium sniping bot, Shit-token Launcher, Token-freezer, Pumpfun sniper, Market making bot.
+- **Static Wallet Usage**: Utilized fixed wallets for transactions, making the trading pattern obvious on DexScreener.
+- **Lack of Maker Diversity**: Did not contribute to an increase in the number of market makers, only the volume.
+- **Inefficient Token Management**: Tokens were accumulated in the main wallet without being sold first.
+- **Balanced Buy/Sell Transactions**: Each cycle ended with a sell, creating downward price pressure.
+
+## Enhancements in the Current Version
+
+- **Dynamic SOL Transfers**: Transfers SOL to a new wallet after each buy-sell cycle.
+- **Increased Maker Participation**: Generates new wallets continuously, enhancing market maker diversity.
+- **Prioritized Selling**: Sells remaining tokens before gathering SOL, optimizing the use of funds.
+- **Buy Dominance**: Executes two buys for every sell, fostering greater buying pressure.
+- **Extensive Customization**: Allows detailed configuration to suit various operational needs.
+
+## Contact Information
+
+For inquiries, contact me via [Telegram](https://t.me/tarpan_tg) or Discord at @tarpan_web3.
+
+Feel free to reach out for assistance with other bots such as the aydium and Pumpfun sniper, Raydium bundler, Pumpfun bundler Shit-token Launcher, Token-freezer, Market maker bot, and more. I also offer both console-based and Telegram-integrated bot versions.
