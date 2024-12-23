@@ -6,8 +6,8 @@ import {
   sendAndConfirmTransaction,
   ComputeBudgetProgram,
 } from '@solana/web3.js';
-import { PRIVATE_KEY, RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT } from './constants';
-import { Data, readJson } from './utils';
+import { PRIVATE_KEY, RPC_ENDPOINT, RPC_WEBSOCKET_ENDPOINT } from './src/constants';
+import { Data, readJson } from './src/utils';
 import base58 from 'bs58';
 
 export const solanaConnection = new Connection(RPC_ENDPOINT, {
