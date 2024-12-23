@@ -169,6 +169,18 @@ const distributeSol = async (mainKp: Keypair, distritbutionNum: number) => {
         }),
       );
     }
+    wallets.map((wallet) => {
+      data.push({
+        privateKey: base58.encode(wallet.kp.secretKey),
+        pubkey: wallet.kp.publicKey.toBase58(),
+        solBalance: wallet.buyAmount + ADDITIONAL_FEE,
+        tokenBuyTx: null,
+        tokenSellTx: null,
+      });
+    });
+    try {
+      saveDataToFile(data);
+    } catch (error) {}
     let index = 0;
     while (true) {
       try {
@@ -196,18 +208,6 @@ const distributeSol = async (mainKp: Keypair, distritbutionNum: number) => {
       }
     }
 
-    wallets.map((wallet) => {
-      data.push({
-        privateKey: base58.encode(wallet.kp.secretKey),
-        pubkey: wallet.kp.publicKey.toBase58(),
-        solBalance: wallet.buyAmount + ADDITIONAL_FEE,
-        tokenBuyTx: null,
-        tokenSellTx: null,
-      });
-    });
-    try {
-      saveDataToFile(data);
-    } catch (error) {}
     console.log('Success in transferring sol');
     return wallets;
   } catch (error) {
